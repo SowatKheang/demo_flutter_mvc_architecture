@@ -37,9 +37,12 @@ class _NoteListViewState extends State<NoteListView> {
                 ),
                 child: ListTile(
                   title: Text(note.createdDate.toString()),
-                  subtitle: Text(
-                    note.getDescriptionWithId(),
-                    style: TextStyle(color: Colors.blue[800], fontWeight: FontWeight.w700),
+                  subtitle: Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      note.getDescriptionWithId(),
+                      style: TextStyle(color: Colors.blue[800], fontWeight: FontWeight.w700),
+                    ),
                   ),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete, color: Colors.red),
