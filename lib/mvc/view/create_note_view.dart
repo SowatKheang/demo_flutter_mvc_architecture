@@ -29,34 +29,37 @@ class _CreateNoteViewState extends State<CreateNoteView> {
       appBar: AppBar(
         title: const Text('Create Note'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('Description :'),
-          TextFormField(
-            focusNode: focusNode,
-            controller: descriptionController,
-            maxLines: 5,
-          ),
-          const SizedBox(height: 8),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                NoteModel noteModel = NoteModel(
-                  widget.noteController.generateNoteId(), 
-                  1, 
-                  descriptionController.text, 
-                  DateTime.now(),
-                );
-                
-                widget.noteController.addNewNote(noteModel);
-
-                Navigator.pop(context);
-              },
-              child: const Text('Add New Note'),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Description :'),
+            TextFormField(
+              focusNode: focusNode,
+              controller: descriptionController,
+              maxLines: 5,
             ),
-          ),
-        ],
+            const SizedBox(height: 8),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  NoteModel noteModel = NoteModel(
+                    widget.noteController.generateNoteId(), 
+                    1, 
+                    descriptionController.text, 
+                    DateTime.now(),
+                  );
+                  
+                  widget.noteController.addNewNote(noteModel);
+      
+                  Navigator.pop(context);
+                },
+                child: const Text('Add New Note'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

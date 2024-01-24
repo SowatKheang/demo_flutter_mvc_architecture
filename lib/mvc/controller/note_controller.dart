@@ -13,7 +13,7 @@ class NoteController {
   }
 
   List<NoteModel> getNoteList() {
-    _noteList.sort((a, b) => b.id.compareTo(a.id)); // Descending Sort
+    _noteList.sort((noteA, noteB) => noteB.id.compareTo(noteA.id)); // Descending Sort
     return _noteList;
   }
 

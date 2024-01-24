@@ -25,19 +25,30 @@ class _NoteListViewState extends State<NoteListView> {
           child: Text('Please add new note'),
         )
         : ListView(
+          padding: const EdgeInsets.only(top: 4),
           children: noteController.getNoteList().asMap().map((index, note) {
             return MapEntry(
               index, 
-              ListTile(
-                title: Text(note.createdDate.toString()),
-                subtitle: Text(note.getDescriptionWithId()),
-                trailing: IconButton(
-                  icon: const Icon(Icons.delete, color: Colors.red),
-                  onPressed: () {
-                    setState(() {
-                      noteController.remoteNote(index);
-                    });
-                  },
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue[100],
+                  borderRadius: BorderRadius.circular(8)
+                ),
+                child: ListTile(
+                  title: Text(note.createdDate.toString()),
+                  subtitle: Text(
+                    note.getDescriptionWithId(),
+                    style: TextStyle(color: Colors.blue[800], fontWeight: FontWeight.w700),
+                  ),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.red),
+                    onPressed: () {
+                      setState(() {
+                        noteController.remoteNote(index);
+                      });
+                    },
+                  ),
                 ),
               ),
             );
