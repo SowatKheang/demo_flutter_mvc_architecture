@@ -46,7 +46,7 @@ class _NoteListViewState extends State<NoteListView> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => CreateNoteView(noteController))).then((value) {
-            setState(() {});
+            setState(() {}); // callback to update the UI
           });
         },
         child: const Icon(Icons.add),
